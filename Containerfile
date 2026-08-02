@@ -77,4 +77,6 @@ RUN apt-get update \
 COPY *.xml /data/
 COPY --chmod=755 entrypoint.py /
 
+STOPSIGNAL SIGINT
+
 ENTRYPOINT [ "/entrypoint.py" ]
