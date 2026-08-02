@@ -1,0 +1,57 @@
+services:
+  hub:
+    build: ..
+    networks:
+      ota:
+        interface_name: eth0
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.1
+      rule.2.unicast: 1024
+      rule.2.broadcast: 1024
+      rule.3.unicast: 1024
+      rule.3.broadcast: 1024
+      rule.4.unicast: 1024
+      rule.4.broadcast: 1024
+    privileged: true
+    stdin_open: true
+    tty: true
+  alice:
+    build: ..
+    networks:
+      ota:
+        interface_name: eth0
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.2
+      rule.1.latency: 0 # A rule must be specified to make a link
+    privileged: true
+    stdin_open: true
+    tty: true
+  bob:
+    build: ..
+    networks:
+      ota:
+        interface_name: eth0
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.3
+      rule.1.latency: 0
+    privileged: true
+    stdin_open: true
+    tty: true
+  carol:
+    build: ..
+    networks:
+      ota:
+        interface_name: eth0
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.4
+      rule.1.latency: 0
+    privileged: true
+    stdin_open: true
+    tty: true
+
+networks:
+  ota:

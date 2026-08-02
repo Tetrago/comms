@@ -1,0 +1,56 @@
+services:
+  alice:
+    build: ..
+    networks:
+      ota0:
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.1
+      rule.2.latency: 0 # A rule must be specified to make a link
+    privileged: true
+    stdin_open: true
+    tty: true
+  bob:
+    build: ..
+    networks:
+      ota0:
+      bridge:
+    environment:
+      config.host_if: eth0
+      config.interfaces: eth1
+      config.address: 10.0.0.2
+      rule.1.latency: 0
+    privileged: true
+    stdin_open: true
+    tty: true
+  carol:
+    build: ..
+    networks:
+      ota1:
+      bridge:
+    environment:
+      config.host_if: eth0
+      config.interfaces: eth1
+      config.id: 1
+      config.address: 10.0.1.1
+      rule.2.latency: 0
+    privileged: true
+    stdin_open: true
+    tty: true
+  dave:
+    build: ..
+    networks:
+      ota1:
+    environment:
+      config.host_if: eth0
+      config.id: 2
+      config.address: 10.0.1.2
+      rule.1.latency: 0
+    privileged: true
+    stdin_open: true
+    tty: true
+
+networks:
+  ota0:
+  ota1:
+  bridge:

@@ -1,0 +1,28 @@
+services:
+  alice:
+    build: ..
+    networks:
+      ota:
+        interface_name: eth0
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.1
+      rule.2.latency: 0.25 # Inbound latency from Bob
+    privileged: true
+    stdin_open: true
+    tty: true
+  bob:
+    build: ..
+    networks:
+      ota:
+        interface_name: eth0
+    environment:
+      config.host_if: eth0
+      config.address: 10.0.0.2
+      rule.1.latency: 0.25 # Inbound latency from Alice
+    privileged: true
+    stdin_open: true
+    tty: true
+
+networks:
+  ota:
