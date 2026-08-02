@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nem SYSTEM "file:///usr/local/share/emane/dtd/nem.dtd">
+<nem type="unstructured">
+  <transport definition="transvirtual.xml"/>
+  <shim definition="model.xml"/>
+</nem>

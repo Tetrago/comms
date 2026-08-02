@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!DOCTYPE platform  SYSTEM 'file:///usr/local/share/emane/dtd/platform.dtd'>
+<platform>
+  <param name="otamanagerchannelenable" value="on"/>
+  <param name="otamanagerdevice" value="{{ host_if }}"/>
+  <param name="otamanagergroup" value="{{ multicast }}:45702"/>
+  <param name="eventservicegroup" value="{{ multicast }}:45703"/>
+  <param name="eventservicedevice" value="{{ host_if }}"/>
+  <param name="controlportendpoint" value="0.0.0.0:0"/>
+
+  <nem definition="nem.xml" id="{{ id }}">
+    <transport definition="transvirtual.xml">
+      <param name="device" value="{{ virt_if }}"/>
+      <param name="address" value="{{ address }}"/>
+      <param name="mask" value="{{ subnet }}"/>
+    </transport>
+  </nem>
+</platform>
+
