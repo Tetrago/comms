@@ -342,9 +342,11 @@ def shell():
 
             if line := line.strip():
                 run_command(line)
-        except (EOFError, KeyboardInterrupt):
+        except EOFError:
             print()
             break
+        except KeyboardInterrupt:
+            print()
         except Exception as e:
             print(f"{Color.RED}{e}{Color.NONE}")
 
