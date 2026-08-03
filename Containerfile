@@ -75,7 +75,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY *.xml /data/
-COPY --chmod=755 entrypoint.py /
+COPY --chmod=+x entrypoint.py /
 
 STOPSIGNAL SIGINT
 
