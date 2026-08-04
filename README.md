@@ -115,6 +115,8 @@ needs to perform its capabilities into plug and play, easy to use virtual IPs.
     Feel free to play around by adding different network effects using the
     `set` command to see what Comms can do.
 
+<a href="https://asciinema.org/a/NkUIW58Z3SuGGUnG" target="_blank"><img src="https://asciinema.org/a/NkUIW58Z3SuGGUnG.svg" /></a>
+
 ## Examples
 
 Check out the compose files in the examples directory to try some different
