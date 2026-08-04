@@ -139,7 +139,7 @@ def apply_rules(id, rules):
         str(x) for x in [
             "/usr/local/bin/emaneevent-commeffect", id, "-g",
             CONFIG["multicast"], "-i", CONFIG["host_if"], "-t", CONFIG["id"],
-            "-r", id, "".join([f"{k}={v}" for k, v in rules.items()])
+            "-r", id, *[f"{k}={v}" for k, v in rules.items()]
         ]
     ]
 
